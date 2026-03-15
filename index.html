@@ -7,10 +7,9 @@
     <style>
         :root {
             --neon-blue: #00bfff;
-            --neon-pink: #ff1493;
+            --royal-blue: #4169E1; /* Azul Royal definido */
             --black: #0d0d0d;
             --card-bg: #1a1a1a;
-            --blue: #007bff;
         }
 
         body {
@@ -21,64 +20,64 @@
             line-height: 1.6;
         }
 
-        /* Cabeçalho Neon com Flexbox */
+        /* Cabeçalho NeroTec */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
             background-color: #000;
-            border-bottom: 3px solid var(--neon-blue);
+            border-bottom: 3px solid var(--royal-blue);
+        }
+
+        .neon-main {
+            color: var(--royal-blue);
+            text-shadow: 0 0 12px rgba(65, 105, 225, 0.7);
+            font-weight: bold;
         }
 
         .neon-text h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.2em;
             text-align: right;
         }
 
-	.neon-main {
-    	color: #4169E1; /* Azul Royal */
-    	text-shadow: 0 0 10px rgba(65, 105, 225, 0.6); /* Brilho neon suave em Azul Royal */
-	}
-
         .neon-slogan {
-            font-size: 0.6em;
+            font-size: 0.5em;
             color: #aaa;
-            text-shadow: 0 0 5px #aaa;
-            margin-left: 15px;
+            margin-left: 10px;
             font-weight: normal;
+            text-shadow: none;
         }
 
-        /* Foto de Perfil de Currículo (Float Right) */
         .header-profile {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+            border: 2px solid var(--royal-blue);
+            box-shadow: 0 0 15px rgba(65, 105, 225, 0.4);
         }
 
-        /* Conteúdo Principal */
         main {
             max-width: 1000px;
             margin: 40px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.03);
             border-radius: 8px;
         }
 
         h2 {
-            color: var(--neon-blue);
-            border-left: 5px solid var(--neon-blue);
+            color: var(--royal-blue);
+            border-left: 5px solid var(--royal-blue);
             padding-left: 15px;
             text-transform: uppercase;
         }
 
+        /* Grid de Serviços */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 30px;
         }
@@ -87,30 +86,29 @@
             background-color: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             transition: 0.3s;
         }
 
         .product-card:hover {
-            border-color: var(--neon-blue);
+            border-color: var(--royal-blue);
             transform: translateY(-5px);
         }
 
         .price {
             font-size: 1.8em;
-            color: var(--neon-blue);
+            color: var(--royal-blue);
             font-weight: bold;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 
-        /* Botão WhatsApp */
         .buy-button {
             display: inline-block;
             background-color: #25D366;
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: bold;
             transition: 0.3s;
@@ -121,78 +119,116 @@
             box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
         }
 
-        /* Rodapé Re-layout com Flexbox */
+        /* Seção de Vídeo Corrigida */
+        .video-section {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 exata */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(65, 105, 225, 0.3);
+            border: 2px solid #333;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Card: miniatura clicável → abre no YouTube (sem embed, sem erro 153) */
+        .video-section .video-link-card {
+            display: block;
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid #333;
+            box-shadow: 0 0 25px rgba(65, 105, 225, 0.3);
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .video-section .video-link-card:hover {
+            border-color: var(--royal-blue);
+            box-shadow: 0 0 30px rgba(65, 105, 225, 0.5);
+        }
+        .video-section .video-link-card .thumb {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+        .video-section .video-link-card .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.35);
+            transition: background 0.3s;
+        }
+        .video-section .video-link-card:hover .play-overlay {
+            background: rgba(0,0,0,0.2);
+        }
+        .video-section .video-link-card .play-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(65, 105, 225, 0.9);
+            border: 4px solid rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            color: white;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .video-section .video-link-card .label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 16px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            font-size: 0.95em;
+            color: #ddd;
+        }
+        .video-section .video-link-card .label strong { color: var(--royal-blue); }
+
         footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 30px 40px;
-            border-top: 3px solid var(--neon-blue);
+            border-top: 3px solid var(--royal-blue);
             margin-top: 60px;
             background-color: #000;
         }
 
         .copyright {
-            margin: 0;
             font-size: 0.9em;
-            color: #aaa;
-            text-align: left;
+            color: #888;
         }
 
-        .img-pare-footer {
-            width: 60px; /* Pequeno no rodapé */
-            height: auto;
-            margin: 0;
-        }
-
-        /* Responsividade Básica */
         @media (max-width: 600px) {
-            header, footer {
-                flex-direction: column-reverse;
-                text-align: center;
-                padding: 20px;
-            }
-            .neon-text h1 {
-                font-size: 1.8em;
-                text-align: center;
-                margin-top: 15px;
-            }
-            .header-profile {
-                width: 60px;
-                height: 60px;
-            }
-            .img-pare-footer {
-                margin-bottom: 15px;
-            }
-            .copyright {
-                text-align: center;
-            }
+            header, footer { flex-direction: column; text-align: center; gap: 15px; }
+            .neon-text h1 { text-align: center; font-size: 1.6em; }
         }
-
-	/* Seção de Vídeo */
-	.video-section {
-    	margin-top: 50px;
-    	text-align: center;
-	}
-
-	.video-container {
-   	 position: relative;
-   	 width: 100%;
-   	 padding-bottom: 45.25%; /* Proporção 16:9 */
-   	 height: 0;
-   	 overflow: hidden;
-    	border-radius: 15px;
-    	box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
-    	border: 1px solid #333;
-	}
-
-	.video-container iframe {
-  	  position: absolute;
-  	  top: 0;
-  	  left: 0;
-  	  width: 100%;
-   	 height: 100%;
-	}
     </style>
 </head>
 <body>
@@ -256,18 +292,13 @@
 
 <section class="video-section">
     <h2>Veja na prática as IAs em ação.</h2>
-    <div class="video-container">
-        <iframe 
-        width="100%" 
-        height="100%" 
-        src="https://www.youtube.com/embed/ZmLD7n-wwKE" 
-        title="NeroTec - Mascote Nero em Ação" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
-        allowfullscreen>
-    </iframe>
-	</div>
+    <a href="https://www.youtube.com/watch?v=ZmLD7n-wwKE" target="_blank" rel="noopener" class="video-link-card" title="Abrir vídeo no YouTube">
+                <img class="thumb" src="https://img.youtube.com/vi/ZmLD7n-wwKE/hqdefault.jpg" alt="Vídeo Nero em ação">
+                <span class="play-overlay" aria-hidden="true">
+                    <span class="play-btn">▶</span>
+                </span>
+                <span class="label"><strong>Clique para assistir no YouTube</strong></span>
+            </a>
     
     <p style="margin-top: 15px;">
         <a href="https://youtu.be/ZmLD7n-wwKE" target="_blank" style="color: var(--neon-blue); text-decoration: none; font-size: 0.9em;">
