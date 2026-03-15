@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeroTec - A Evolução do seu PC</title>
+    <style>
+        :root {
+            --neon-blue: #00bfff;
+            --neon-pink: #ff1493;
+            --black: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --blue: #007bff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background-color: var(--black);
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho Neon com Flexbox */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #000;
+            border-bottom: 3px solid var(--neon-blue);
+        }
+
+        .neon-text h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-align: right;
+        }
+
+	.neon-main {
+    	color: #4169E1; /* Azul Royal */
+    	text-shadow: 0 0 10px rgba(65, 105, 225, 0.6); /* Brilho neon suave em Azul Royal */
+	}
+
+        .neon-slogan {
+            font-size: 0.6em;
+            color: #aaa;
+            text-shadow: 0 0 5px #aaa;
+            margin-left: 15px;
+            font-weight: normal;
+        }
+
+        /* Foto de Perfil de Currículo (Float Right) */
+        .header-profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: var(--neon-blue);
+            border-left: 5px solid var(--neon-blue);
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: var(--neon-blue);
+            transform: translateY(-5px);
+        }
+
+        .price {
+            font-size: 1.8em;
+            color: var(--neon-blue);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* Botão WhatsApp */
+        .buy-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #128C7E;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Rodapé Re-layout com Flexbox */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            border-top: 3px solid var(--neon-blue);
+            margin-top: 60px;
+            background-color: #000;
+        }
+
+        .copyright {
+            margin: 0;
+            font-size: 0.9em;
+            color: #aaa;
+            text-align: left;
+        }
+
+        .img-pare-footer {
+            width: 60px; /* Pequeno no rodapé */
+            height: auto;
+            margin: 0;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 600px) {
+            header, footer {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 20px;
+            }
+            .neon-text h1 {
+                font-size: 1.8em;
+                text-align: center;
+                margin-top: 15px;
+            }
+            .header-profile {
+                width: 60px;
+                height: 60px;
+            }
+            .img-pare-footer {
+                margin-bottom: 15px;
+            }
+            .copyright {
+                text-align: center;
+            }
+        }
+
+	/* Seção de Vídeo */
+	.video-section {
+    	margin-top: 50px;
+    	text-align: center;
+	}
+
+	.video-container {
+   	 position: relative;
+   	 width: 100%;
+   	 padding-bottom: 45.25%; /* Proporção 16:9 */
+   	 height: 0;
+   	 overflow: hidden;
+    	border-radius: 15px;
+    	box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+    	border: 1px solid #333;
+	}
+
+	.video-container iframe {
+  	  position: absolute;
+  	  top: 0;
+  	  left: 0;
+  	  width: 100%;
+   	 height: 100%;
+	}
+    </style>
+</head>
+<body>
+
+    <!-- Vídeo do YouTube propaganda https://youtu.be/ZmLD7n-wwKE -->
+
+    <header>
+	<img src="nerotec.jpg" alt="Huan Nero Profile" class="header-profile">
+        <div class="neon-text">
+            <h1><span class="neon-main"><b>Nero Tec</b></span><span class="neon-slogan">- A Evolução do seu PC.</span></h1>
+        </div>
+        <img src="nerotec.jpg" alt="Huan Nero Profile" class="header-profile">
+    </header>
+
+    <main>
+
+	<section>
+            <h2>Nossos Serviços em Londrina</h2>
+            <p>A <span class="neon-main">Nero Tec</span> oferece manutenção de hardware e as melhores soluções em IA.</p>
+            <ul>
+                <li><b>Manutenção:</b> Notebooks, computadores e troca de peças.</li>
+                <li><b>Sistemas:</b> Instalação de Windows 10, 11 e Linux com backup.</li>
+                <li><b>Vanguarda:</b> Consultoria e instalação de IAs locais com privacidade total.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Serviços Disponíveis</h2>
+            <div class="product-grid">
+                
+                <div class="product-card">
+                    <h3>Manutenção Pro</h3>
+                    <p>Reparo de Notebooks e Computadores, limpeza técnica e troca de peças físicas.</p>
+		    <h5>(valor variável conforme orçamento)</h5>
+                    <div class="price">R$ 50,00 </div>
+		    <h5>mão de obra*</h5>
+                    <a href="https://wa.me/55439XXXXXXXX?text=Olá, gostaria de saber mais sobre a Manutenção Pro de valor a partir de R$0,00 informado no Site." class="buy-button" target="_blank">Comprar Serviço</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>Formatação & Software</h3>
+                    <p>Instalação de Windows 10, 11 ou Linux com backup completo e otimização.</p>
+		    <h5>(valor variável conforme orçamento)</h5>
+                    <div class="price">R$ 100,00</div>
+		    <h5>variável conforme método de Licença*</h5>
+                    <a href="https://wa.me/55439XXXXXXXX?text=Olá, gostaria de saber mais sobre a Formatação de Sistemas de valor R$0,00 informado no Site." class="buy-button" target="_blank">Comprar Serviço</a>
+                </div>
+
+                <div class="product-card">
+                    <h3>Mídia & Promoção IA</h3>
+                    <p>Criação de vídeos, áudios e imagens promocionais utilizando as melhores IAs.</p>
+		    <h5>(valor variável conforme orçamento)</h5>
+                    <div class="price">R$ 120,00</div>
+		    <h5>variável conforme pedido de imagem, vídeo, e-book, etc*</h5>
+                    <a href="https://wa.me/55439XXXXXXXX?text=Olá, gostaria de saber mais sobre a Criação de Conteúdo IA de valor R$0,00 informado no Site." class="buy-button" target="_blank">Comprar Serviço</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+<section class="video-section">
+    <h2>Veja na prática as IAs em ação.</h2>
+    <div class="video-container">
+        <iframe 
+    src="https://youtu.be/ZmLD7n-wwKE" 
+    title="NeroTec IA em Ação" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+</iframe>
+    </div>
+    
+    <p style="margin-top: 15px;">
+        <a href="https://youtu.be/ZmLD7n-wwKE" target="_blank" style="color: var(--neon-blue); text-decoration: none; font-size: 0.9em;">
+            🎥 Problemas com o player? Clique aqui para ver direto no YouTube.
+        </a>
+    </p>
+</section>
+
+    <footer>
+        <p class="copyright">© Todos os direitos de imagens reservados a NeroTec 2026. Londrina-PR</p>
+        <img src="nerotec.jpg" alt="Huan Nero Profile" class="header-profile">
+    </footer>
+
+</body>
+</html>
