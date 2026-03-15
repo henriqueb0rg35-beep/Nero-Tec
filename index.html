@@ -291,27 +291,47 @@
     </main>
 
 <section class="video-section">
-    <h2>Veja na prática as IAs em ação.</h2>
-    <a href="https://www.youtube.com/watch?v=ZmLD7n-wwKE" target="_blank" rel="noopener" class="video-link-card" title="Abrir vídeo no YouTube">
-                <img class="thumb" src="https://img.youtube.com/vi/ZmLD7n-wwKE/hqdefault.jpg" alt="Vídeo Nero em ação">
-                <span class="play-overlay" aria-hidden="true">
-                    <span class="play-btn">▶</span>
-                </span>
-                <span class="label"><strong>Clique para assistir no YouTube</strong></span>
-            </a>
-    <p style="margin-top: 15px;">
-        <a href="https://youtu.be/ZmLD7n-wwKE" target="_blank" style="color: var(--neon-blue); text-decoration: none; font-size: 0.9em;">
-            🎥 Problemas com o player? Clique aqui para ver direto no YouTube.
-        </a>
-		<a href="https://drive.google.com/file/d/1C-hpFgKdxBc4UnoXjsd9yT8qMxXUfUem/view?usp=drive_link" target="_blank" rel="noopener" class="video-link-card" title="Abrir vídeo no YouTube">
-                <img class="thumb" src="https://img.youtube.com/vi/ZmLD7n-wwKE/hqdefault.jpg" alt="Vídeo Nero em ação">
-                <span class="play-overlay" aria-hidden="true">
-                    <span class="play-btn">▶</span>
-                </span>
-                <span class="label"><strong>Clique para assistir no YouTube</strong></span>
-            </a>
-    </p>
-</section>
+            <h2>Vídeo NeroTec (assistir aqui no site)</h2>
+            <div class="video-inline-wrap" id="driveVideoWrap">
+                <button type="button" class="video-inline-trigger" id="driveTrigger" aria-label="Reproduzir vídeo no site">
+                    <span class="thumb-placeholder" aria-hidden="true"></span>
+                    <span class="play-overlay" aria-hidden="true">
+                        <span class="play-btn">▶</span>
+                    </span>
+                    <span class="label"><strong>Clique para assistir aqui no site</strong></span>
+                </button>
+                <div class="video-inline-player" id="drivePlayer">
+                    <div class="player-wrap">
+                        <iframe src="about:blank" data-src="https://drive.google.com/file/d/1C-hpFgKdxBc4UnoXjsd9yT8qMxXUfUem/preview" title="Vídeo NeroTec" allow="autoplay" allowfullscreen></iframe>
+                    </div>
+                    <button type="button" class="close-player" id="driveClose">Fechar vídeo</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        (function() {
+            var wrap = document.getElementById('driveVideoWrap');
+            var trigger = document.getElementById('driveTrigger');
+            var player = document.getElementById('drivePlayer');
+            var closeBtn = document.getElementById('driveClose');
+            var iframe = wrap && wrap.querySelector('iframe');
+            if (!wrap || !trigger || !player) return;
+            trigger.addEventListener('click', function() {
+                wrap.classList.add('is-playing');
+                player.classList.add('is-open');
+                if (iframe && iframe.dataset.src) {
+                    iframe.src = iframe.dataset.src;
+                }
+            });
+            closeBtn.addEventListener('click', function() {
+                wrap.classList.remove('is-playing');
+                player.classList.remove('is-open');
+                if (iframe) iframe.src = 'about:blank';
+            });
+        })();
+    </script>
 
     <footer>
         <p class="copyright">© Todos os direitos de imagens reservados a NeroTec 2026. Londrina-PR</p>
